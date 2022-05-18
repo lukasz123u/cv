@@ -43,7 +43,7 @@ hr {
 
 .text-container {
   position: relative;
-  bottom: 40%;
+  bottom: 20%;
 }
 
 .middle-container {
@@ -97,7 +97,7 @@ hr {
 }
 
 .cr {
-  color: #D0C9C0;
+  color: #A1E3E8;
   font-size: 1rem;
   padding: 15px 0;
 
