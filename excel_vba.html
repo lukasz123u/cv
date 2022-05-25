@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Excel & VBA</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="favicon-32x32.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kavivanar&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kavivanar&family=Open+Sans&family=Square+Peg&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="middle-container">
+    <div class="profile">
+      <img class="" src="img\excel.png" alt="excel-img">
+      <img class="" src="img\vba.png" alt="vba-img"><br><br>
+      <hr>
+      <h3>ActiveCell row/column highliht.</h3>
+      <a href="https://docs.microsoft.com/en-us/office/vba/excel/concepts/cells-and-ranges/highlight-the-active-cell-row-or-column"></a>
+      <p class="description">It was about 2 years ago when I decided to use
+        <strong>V</strong>isual <strong>B</strong>asic for <strong>A</strong>pplication on my own. I remember seeing
+        my colleague monitor looking over his shoulder.
+        There was an Excel with row highlighting.
+        It seemed so lucid to read that
+        I wanted to do it instantly on my computer.
+        After some time I found it was obvious to have it.
+        There is an internet and someone had to do it before.
+        You can find a solutions at<a class="ex_link"
+        href="https://docs.microsoft.com/en-us/office/vba/excel/concepts/cells-and-ranges/highlight-the-active-cell-row-or-column">Microsoft Docs.</a>
+        But I preferred to have a book. So I bought one.
+        The code is very similar:
+      </p>
+      <code>
+        <textarea class="my_code" name="code1" rows="10" cols="60" spellcheck="false">
+Private Sub Worksheet_SelectionChange(ByVal Target As Range)
+
+  Cells.Interior.ColorIndex = xlNone
+    With ActiveCell
+        .EntireRow.Interior.Color = RGB(242, 221, 142)
+        .EntireColumn.Interior.Color = RGB(242, 221, 142)
+    End With
+
+End Sub
+        </textarea>
+      </code>
+      <p class="bio">Bibliography: </p>
+      <p class="bio">Authors: Michael Alexander, Dick Kusleika</p>
+      <p class="bio">Title: Excel 2016 Power Programming with VBA</p>
+      <p class="bio">ISBN: 978-83-283-2858-7</p>
+      <p class="description">
+        The only problem may be the lack of undoing your action.
+        But really it was it. Now I use it all the time.
+        It was the beginning...        
+      </p>
+      <br>
+    </div>
+    <hr>
+
+</body>
+
+</html>
