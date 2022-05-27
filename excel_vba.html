@@ -190,8 +190,28 @@ End Sub
       <p class="bio">© Lukasz Szwagrzyk</p>
 
       <p class="description">
+        <strong>And</strong> do the printout.
+      </p>
+      <code>
+        <textarea class="my_code" name="code1" rows="10" cols="60" spellcheck="false">
+Sub print()
+
+  For Each Worksheet In ActiveWorkbook.Worksheets
+
+    Worksheet.Activate
+  	ActiveWindow.SelectedSheets.PrintOut Copies:=1, Collate:=True, _
+  	IgnorePrintAreas:=False
+
+  Next
+
+End Sub
+          </textarea>
+      </code>
+      <p class="bio">© Lukasz Szwagrzyk</p>
+
+      <p class="description">
         <strong>Finally</strong> apply ISO_to_DIN(), set_marigins(),
-        set_printer() to every Excel file.
+        set_printer() and print() to every Excel file.
       </p>
       <code>
         <textarea class="my_code" name="code1" rows="10" cols="60" spellcheck="false">
@@ -211,6 +231,7 @@ Application.my_pathreenUpdating = False
 Call ISO_to_DIN()
 Call set_marigins()
 Call set_printer()
+Call print()
 
 Application.my_pathreenUpdating = True
     ActiveWorkbook.Close SaveChanges:=True
