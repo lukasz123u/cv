@@ -16,22 +16,21 @@
 
 <body>
   <div class="middle-container">
+    <img class="" src="img\excel.png" alt="excel-img">
+    <img class="" src="img\vba.png" alt="vba-img"><br><br>
     <div class="profile">
-      <img class="" src="img\excel.png" alt="excel-img">
-      <img class="" src="img\vba.png" alt="vba-img"><br><br>
       <hr>
       <h3>ActiveCell row/column highliht.</h3>
       <a href="https://docs.microsoft.com/en-us/office/vba/excel/concepts/cells-and-ranges/highlight-the-active-cell-row-or-column"></a>
-      <p class="description">It was about 2 years ago when I decided to use
+      <p class="description">It was about two years ago when I decided to use
         <strong>V</strong>isual <strong>B</strong>asic for <strong>A</strong>pplication on my own. I remember seeing
-        my colleague monitor looking over his shoulder.
+        my colleague's monitor looking over his shoulder.
         There was an Excel with row highlighting.
         It seemed so lucid to read that
         I wanted to do it instantly on my computer.
         After some time I found it was obvious to have it.
         There is an internet and someone had to do it before.
-        You can find a solutions at<a class="ex_link"
-        href="https://docs.microsoft.com/en-us/office/vba/excel/concepts/cells-and-ranges/highlight-the-active-cell-row-or-column">Microsoft Docs.</a>
+        You can find a solution in<a class="ex_link" href="https://docs.microsoft.com/en-us/office/vba/excel/concepts/cells-and-ranges/highlight-the-active-cell-row-or-column">Microsoft Docs.</a>
         But I preferred to have a book. So I bought one.
         The code is very similar:
       </p>
@@ -55,11 +54,181 @@ End Sub
       <p class="description">
         The only problem may be the lack of undoing your action.
         But really it was it. Now I use it all the time.
-        It was the beginning...        
+        It was the beginning...
       </p>
       <br>
     </div>
     <hr>
+
+    <div class="profile">
+      <hr>
+      <h3>The power of the loops.</h3>
+      <a href="https://docs.microsoft.com/en-us/office/vba/excel/concepts/cells-and-ranges/highlight-the-active-cell-row-or-column"></a>
+      <p class="description">As I remember learning the basics,
+        one of the first things was loops.
+        And I currently think they are the most important and powerful tools in programming.
+        In Excel, I've found it useful to apply procedures to all files in a folder.
+        And it was astonishing seeing how the computer does all the jobs instantly.
+        Like an explosion of thoughts aimed directly to the point of productivity.
+      </p>
+      <p class="description">Let's say we want to make some constant changes in every *.xlsx file
+        in folder. And then set some plot properties and plot them all.
+        All of that with one "click"...</p>
+      <p class="description"><strong>Firstly</strong> do some amendments.
+        Eg change ISO norm to DIN in a partlist.</p>
+      <code>
+        <textarea class="my_code" name="code1" rows="10" cols="60" spellcheck="false">
+Sub ISO_to_DIN()
+
+Dim i As Integer
+'start_row, end_row, column_number; some integers to choose
+
+    For i = start_row To end_row
+
+         Select Case Cells(i, column_number)
+
+                    Case "3 4017"
+                        Cells(i, 10).Value = "1 933"
+                    Case "3 4032"
+                        Cells(i, 10).Value = "1 934"
+                    Case "3 7089"
+                        Cells(i, 10).Value = "1 125"
+                    Case "3 7091"
+                        Cells(i, 10).Value = "1 126"
+                    Case "3 7094"
+                        Cells(i, 10).Value = "1 440"
+                    Case "3 10642"
+                        Cells(i, 10).Value = "1 7991"
+                    Case "3 4762"
+                        Cells(i, 10).Value = "1 912"
+                    Case "3 4029"
+                        Cells(i, 10).Value = "1 916"
+                    Case "3 4014"
+                        Cells(i, 10).Value = "1 931"
+                    Case "3 4027"
+                        Cells(i, 10).Value = "1 914"
+                    Case "3 4026"
+                        Cells(i, 10).Value = "1 913"
+                    Case "3 3266"
+                        Cells(i, 10).Value = "1 580"
+                    Case "3 7412"
+                        Cells(i, 10).Value = "1 6914"
+                    Case "3 7042"
+                        Cells(i, 10).Value = "1 980"
+                    Case "3 4035"
+                        Cells(i, 10).Value = "1 439"
+                    Case "3 4035"
+                        Cells(i, 10).Value = "1 936"
+                    Case "3 7414"
+                        Cells(i, 10).Value = "1 6915"
+                    Case "3 7040"
+                        Cells(i, 10).Value = "1 982"
+                    Case "3 10511"
+                        Cells(i, 10).Value = "1 985"
+                    Case "3 7093"
+                        Cells(i, 10).Value = "1 9021"
+                    Case "3 8738"
+                        Cells(i, 10).Value = "1 1440"
+                     Case "3 7416"
+                        Cells(i, 10).Value = "1 6916"
+                    Case "3 7092"
+                        Cells(i, 10).Value = "1 433"
+        End Select
+
+    Next i
+
+End Sub
+        </textarea>
+      </code>
+      <p class="bio">© Lukasz Szwagrzyk</p>
+      <p class="description">
+        <strong>Secondly</strong>, let me set margins and footers.
+      </p>
+      <code>
+        <textarea class="my_code" name="code1" rows="10" cols="60" spellcheck="false">
+Sub set_marigins()
+
+Dim inch, top_marigin, bottom_marigin, top_marigin_heading, top_marigin_footer As Double
+
+inch = 25.4
+top_marigin = 15
+bottom_marigin = 11
+top_marigin_heading = 5
+top_marigin_footer = 5
+
+    With ActiveSheet.PageSetup
+        .TopMargin = Application.InchesToPoints(top_marigin / inch)
+        .BottomMargin = Application.InchesToPoints(bottom_marigin / inch)
+        .HeaderMargin = Application.InchesToPoints(top_marigin_heading / inch)
+        .FooterMargin = Application.InchesToPoints(top_marigin_footer / inch)
+    End With
+
+End Sub
+        </textarea>
+      </code>
+      <p class="bio">© Lukasz Szwagrzyk</p>
+      <p class="description">
+        <br>
+      <p class="description">
+        <strong>Next</strong> we can set the printer.
+      </p>
+      <code>
+        <textarea class="my_code" name="code1" rows="10" cols="60" spellcheck="false">
+Sub set_printer()
+
+Dim my_network As Object
+
+    Set my_network = CreateObject("WScript.network")
+
+    my_network.setdefaultprinter "Your_printer_name"
+
+    Set my_network = Nothing
+
+End Sub
+          </textarea>
+      </code>
+      <p class="bio">© Lukasz Szwagrzyk</p>
+
+      <p class="description">
+        <strong>Finally</strong> apply ISO_to_DIN(), Sub set_marigins(),
+        set_printer() to every Excel file.
+      </p>
+      <code>
+        <textarea class="my_code" name="code1" rows="10" cols="60" spellcheck="false">
+Sub print_everythink_at_once()
+
+Dim my_files As String
+Dim my_path As String
+
+my_path = InputBox("Give me a path... ")
+my_files = Dir(my_path & "\" & "*.xlsx")
+
+Do While my_files <> ""
+Workbooks.Open my_path & "\" & my_files
+
+Application.my_pathreenUpdating = False
+
+Call ISO_to_DIN()
+Call set_marigins()
+Call set_printer()
+
+Application.my_pathreenUpdating = True
+    ActiveWorkbook.Close SaveChanges:=True
+
+my_files = Dir
+Loop
+
+End Sub
+              </textarea>
+      </code>
+      <p class="bio">© Lukasz Szwagrzyk</p>
+      <p class="description">
+        There are many ideas about what You need to do with Your files,
+         but there is only one mechanism" the loops, which will help You
+          to achieve Your goals.
+      </p>
+      <br><hr><hr>
+
 
 </body>
 
